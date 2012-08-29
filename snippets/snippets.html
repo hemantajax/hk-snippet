@@ -1,0 +1,182 @@
+<!doctype html>
+<html>
+<head>
+	<title>Very usefull snippets</title>
+	<meta charset="utf-8" />
+  <link rel="stylesheet" href="css/sh_style.css" />
+  <link rel="stylesheet" href="css/boilerplate.css" />
+</head>
+<body>
+
+<div role="main" id="main">
+      <section id="snippets">
+    <article>
+            <header>
+              <h2 id="background-image options" class="name" tabindex="0" role="button" aria-expanded="true">Intersection of two array</h2>
+              <h3 class="status jquery">jQuery</h3>
+            </header>
+            <div class="more">
+<pre class="sh_javascript_dom">
+var arr1=[2,3,5],
+    arr2=[1,8,3],
+    output=[];
+    
+output=$.map(arr1,function(a){return $.inArray(a, arr2) < 0 ? null : a;});
+console.log(output);//[3] 
+</pre>
+            </div>
+    </article>
+
+    <article>
+            <header>
+              <h2 id="background-image options" class="name" tabindex="0" role="button" aria-expanded="true">Fake Scope</h2>
+              <h3 class="status javascript">Javascript</h3>
+            </header>
+            <div class="more">
+<pre class="sh_javascript_dom">
+var girl="Chikni Chameli";
+function getGirl(g){ console.log(g+" "+this.girl)};// Lovely Chikni Chameli
+getGirl("Lovely");
+
+//fake scope
+var myGirl={girl:"Munni"};
+getGirl.call(myGirl,"Badnaam"); // Badnaam Munni
+</pre>
+            </div>
+    </article>
+
+    <article>
+            <header>
+              <h2 id="background-image options" class="name" tabindex="0" role="button" aria-expanded="true">Remove any element from array</h2>
+              <h3 class="status jquery">jQuery</h3>
+            </header>
+            <div class="more">
+<pre class="sh_javascript_dom">
+var arr = [1, 2, 3, 4, 5],
+    removeItem = 2;
+
+arr = jQuery.grep(arr, function(value) {
+        return value != removeItem;
+      });
+
+// new array
+// [1, 3, 4, 5]
+</pre>
+            </div>
+    </article>
+
+
+    <article>
+            <header>
+              <h2 id="background-image options" class="name" tabindex="0" role="button" aria-expanded="true">
+                basic html template</h2>
+              <h3 class="status html">HTML</h3>
+            </header>
+            <div class="more">
+<pre class="sh_html">
+&lt;!doctype html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;title&gt;&lt;/title&gt;
+  &lt;meta charset=&quot;utf-8&quot; /&gt;
+  &lt;style&gt;
+
+  &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+
+
+&lt;script type=&quot;text/javascript&quot; src=&quot;http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+  (function(){
+    
+
+  })();
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+            </div>
+          </article>
+          		
+		<article>
+            <header>
+              <h2 id="background-image options" class="name" tabindex="0" role="button" aria-expanded="true">handling Ajax Error</h2>
+              <h3 class="status jquery">jQuery</h3>
+            </header>
+            <div class="more">
+<pre class="sh_javascript_dom">
+	$(function() {
+	    //global ajax error handler
+	    jQuery(this).ajaxError(function() {
+	       $("#loader").hide();
+	       alert('An ajax error occurred. Please try again!');
+	    });
+	});
+</pre>
+            </div>
+    </article>
+    
+    <article>
+            <header>
+              <h2 id="background-image options" class="name" tabindex="0" role="button" aria-expanded="true">centering div using css</h2>
+              <h3 class="status css">HTML + CSS</h3>
+            </header>
+            <div class="more">
+                <h3>Markup</h3>
+<pre class="sh_html">
+ &lt;div class=&quot;outer&quot;&gt;
+    &lt;div class=&quot;inner&quot;&gt;
+      &lt;h1&gt;My Header&lt;/h1&gt;
+      &lt;p&gt;
+        main content goes here
+      &lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+</pre>
+<h3>CSS</h3>                
+<pre class="sh_css">
+    .outer{
+      position: absolute;
+      top: 50%;
+      left: 0px;
+      width: 100%;
+      height: 1px;
+      overflow: visible;
+    }
+
+    .inner{
+      width: 400px;
+      margin-left: -200px;  /* width of the .inner / 2 */
+      position: absolute;
+      top: -140px;          /* height of the .inner / 2 */
+      left: 50%;
+      text-align:center;
+      background-color: #ff0;     
+    }
+</pre>
+
+            </div>
+          </article>         
+      </section>
+      <h2 class="visuallyhidden" id="noitems">No items met your search =(</h2>
+    </div>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script src="js/sh_main.min.js"></script>
+<script src="js/sh_js.js"></script> 
+<script src="js/sh_css.min.js"></script> 
+<script src="js/sh_html.min.js"></script> 
+
+<script>
+	(function(){
+
+		$("#snippets").on("click","header",function(){
+			$(this).closest("article").toggleClass("expanded").end().next().toggle();
+		});
+  sh_highlightDocument();
+	})();
+</script>
+</body>
+</html>
